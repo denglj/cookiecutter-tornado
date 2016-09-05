@@ -1,0 +1,7 @@
+# Test coverage configuration.
+
+[run]
+include = {{cookiecutter.project_slug}}/*
+omit =
+    {{cookiecutter.project_slug}}/tests*
+    tests/*

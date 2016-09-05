@@ -1,0 +1,43 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Generated files
+*.log
+*.pot
+*.pyc
+.idea
+_build
+
+# Project Specific Stuff
+local_settings.py
+project_slug
+my_test_project/*
+
+# Generated when running py.test for the Cookiecutter Django generation tests
+.cache/
+
+# Generated when running celery beat
+celerybeat-schedule.db
+
+# Unit test / coverage reports
+.coverage
+.tox
+.cache

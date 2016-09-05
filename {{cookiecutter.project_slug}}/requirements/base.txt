@@ -1,0 +1,9 @@
+# this file for base requirments of all kind enviroment
+wheel==0.29.0
+
+# latest stable Tornado
+tornado==4.4.1
+
+# if mysql
+
+# Your custom base requirements go here
