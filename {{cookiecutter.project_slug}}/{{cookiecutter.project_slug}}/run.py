@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import tornado.httpserver
 import tornado.ioloop
-import tornado.options
 import tornado.web
 import tornado.autoreload
 from tornado.options import options
+import logging
 
 from settings import settings
 from {{ cookiecutter.project_slug }}.urls import url_patterns
@@ -15,7 +14,8 @@ from {{ cookiecutter.project_slug }}.urls import url_patterns
 class MainApplication(tornado.web.Application):
 
     def __init__(self):
-        super(MainApplication, self).__init__(self, url_patterns, **settings)
+        logging.info("init MainApplication with settings: %s" % str(settings))
+        tornado.web.Application.__init__(self, url_patterns, **settings)
 
 
 def main():

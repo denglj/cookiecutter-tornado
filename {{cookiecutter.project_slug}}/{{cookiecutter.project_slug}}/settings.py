@@ -4,6 +4,7 @@
 import os
 import sys
 import logging
+import logging.config
 
 import tornado
 from tornado.options import define, options
