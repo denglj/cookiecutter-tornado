@@ -18,12 +18,20 @@ class Example(RESTfulHandler):
                      'discription': 'create resource with given arguments',
                      'arguments': self.request.arguments})
 
-    def update(self, example_id):
-        # update specified resource through PUT method
+    def update_full(self, example_id):
+        # full update specified resource through PUT method
         pass
 
-    def update_collection(self):
-        # update whole resources through PUT method without arguments
+    def update_collection_full(self):
+        # full update resources through PUT method without arguments
+        pass
+
+    def update_partial(self, example_id):
+        # partial update specified resource through PATCH method
+        pass
+
+    def update_collection_partial(self):
+        # partial update resources through PATCH method without arguments
         pass
 
     def delete(self, example_id):
@@ -33,3 +41,16 @@ class Example(RESTfulHandler):
     def delete_collection(self):
         # delete whole resources of this kind through DELETE method without arguments
         pass
+
+    def http_options(self, example_id):
+        allow_method = ['GET', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS']
+        if example_id:
+            allow_method.append('POST')
+        self.set_status(204)
+        self.set_header('Allow', ','.join(allow_method))
+        self.finish()
+
+    def header(self, example_id):
+        # like GET , but only return http header
+        # you should complete this function
+        self.finish()

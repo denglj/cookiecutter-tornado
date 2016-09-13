@@ -7,8 +7,10 @@ from tornado.escape import json_encode
 
 class RESTfulHandler(tornado.web.RequestHandler):
 
-    methods = ("lists", "gets", "create", "update", "delete",
-               "update_collection", "delete_collection")
+    methods = ("lists", "gets", "create", "header", "http_options"
+               "update_full", "update_collection_full",
+               "update_partial", "update_collection_partial",
+               "delete", "delete_collection")
 
     def __init__(self, application, request, **kwargs):
         super(RESTfulHandler, self).__init__(application, request, **kwargs)
@@ -34,9 +36,15 @@ class RESTfulHandler(tornado.web.RequestHandler):
 
     def put(self, resource_id=None):
         if resource_id is None:
-            return self.update_collection()
+            return self.update_collection_full()
         else:
-            return self.update(resource_id)
+            return self.update_full(resource_id)
+
+    def patch(self, resource_id=None):
+        if resource_id is None:
+            return self.update_collection_partial()
+        else:
+            return self.update_partial(resource_id)
 
     def delete(self, resource_id=None):
         if resource_id is None:
@@ -44,6 +52,13 @@ class RESTfulHandler(tornado.web.RequestHandler):
         else:
             return self.delete(resource_id)
 
+    def options(self, resource_id=None):
+        return self.http_options(resource_id)
+
+    def head(self, resource_id=None):
+        return self.header(resource_id)
+
     def finish(self, chunk=None):
-        chunk = json_encode(chunk)
+        if chunk is not None:
+            chunk = json_encode(chunk)
         super(RESTfulHandler, self).finish(chunk)
