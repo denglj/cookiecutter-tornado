@@ -30,11 +30,6 @@ define("port", default=8000, help="run on the given port", type=int)
 define("config", default=None, help="tornado config file")
 define("debug", default=False, help="debug mode")
 
-# parse commadline
-tornado.options.parse_command_line()
-# parse config file
-if options.config:
-    tornado.options.parse_config_file(options.config)
 
 # Development type setting
 class DeploymentType:
