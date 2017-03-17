@@ -1,0 +1,11 @@
+# this file for base requirments of all kind enviroment
+wheel
+
+# latest stable Tornado
+tornado
+
+# if mysql
+
+# if redis
+
+# Your custom base requirements go here

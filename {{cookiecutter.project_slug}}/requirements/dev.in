@@ -1,0 +1,18 @@
+# Local development dependencies go here
+
+-r base.in
+
+Sphinx
+
+pip-tools
+
+# improved REPL
+#ipdb
+
+pylint
+
+pytest
+pytest-tornado
+pytest-sugar
+pytest-cov
+pytest-pythonpath

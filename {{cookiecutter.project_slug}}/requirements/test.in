@@ -1,0 +1,17 @@
+# Test dependencies go here. Usually this for Continuous Integration environment.
+-r base.in
+
+pip-tools
+
+# for docs
+Sphinx
+
+# pylint
+pylint
+
+# testting
+pytest
+pytest-tornado
+pytest-sugar
+pytest-cov
+pytest-pythonpath
